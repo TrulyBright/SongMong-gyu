@@ -16,7 +16,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get("uploaded/" + this.id + '/info');
+    const response = await axios.get("uploaded/" + this.id + "/info");
     this.file.id = response.data.id;
     this.file.name = response.data.name;
     this.file.contentType = response.data.content_type;

@@ -59,6 +59,7 @@ export default {
           ><i class="bi-github"></i
         ></a>
       </p>
+      <p><a href="mailto:trulybright@yonsei.ac.kr">개발자 이메일</a></p>
     </div>
   </footer>
 </template>
