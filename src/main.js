@@ -9,7 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://api." + window.location.hostname + "/";
+axios.defaults.baseURL = "https://api.yonseimunhak.com/";
+axios.uploadedFilePath = (id) => axios.defaults.baseURL + "uploaded/" + id;
 
 const app = createApp(App);
 

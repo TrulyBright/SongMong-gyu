@@ -4,20 +4,20 @@ import axios from "axios";
 <script>
 export default {
   props: {
-    uuid: String,
+    id: String,
   },
   data() {
     return {
       file: {
-        uuid: "",
+        id: "",
         name: "",
         contentType: "",
       },
     };
   },
   async created() {
-    const response = await axios.get("uploaded-info/" + this.uuid);
-    this.file.uuid = response.data.uuid;
+    const response = await axios.get("uploaded/" + this.id + '/info');
+    this.file.id = response.data.id;
     this.file.name = response.data.name;
     this.file.contentType = response.data.content_type;
   },
@@ -25,7 +25,7 @@ export default {
 </script>
 <template>
   <div>
-    <a :href="axios.defaults.baseURL + 'uploaded/' + file.uuid" download>
+    <a :href="axios.uploadedFilePath(file.id)" download>
       <small
         ><i
           :class="

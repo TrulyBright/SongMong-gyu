@@ -12,8 +12,8 @@ export default {
   },
   async created() {
     const [noticeResponse, magazineResponse] = await Promise.all([
-      axios.get("recent-notices"),
-      axios.get("recent-magazines"),
+      axios.get("notices/recent"),
+      axios.get("magazines/recent"),
     ]);
     this.recentNotices = noticeResponse.data;
     this.recentMagazines = magazineResponse.data;

@@ -17,7 +17,7 @@ export default {
     };
   },
   async created() {
-    const response = await axios.get("notice-count");
+    const response = await axios.get("notices/count");
     this.total = response.data;
     await this.getRows();
   },

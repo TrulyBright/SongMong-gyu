@@ -7,7 +7,7 @@ import FileUploaded from "./FileUploaded.vue";
 const store = useMemberStore();
 export default {
   props: {
-    uuid: [String, null],
+    id: [String, null],
     accept: [String, null],
   },
   data() {
@@ -20,8 +20,8 @@ export default {
     };
   },
   async created() {
-    if (this.uuid) {
-      const response = await axios.get("uploaded-info/" + this.uuid);
+    if (this.id) {
+      const response = await axios.get("uploaded/" + this.id + "/info");
       this.applyUpload(response.data);
     }
   },
@@ -34,9 +34,9 @@ export default {
       if (confirm("이 파일을 서버에서 즉시 삭제합니다. 취소할 수 없습니다.")) {
         this.uploaded = false;
         this.$emit("uploadedRemove", {
-          uuid: this.uploadData.uuid,
+          id: this.uploadData.id,
         });
-        await axios.delete(`uploaded/${this.uploadData.uuid}`, {
+        await axios.delete(`uploaded/${this.uploadData.id}`, {
           headers: {
             Authorization: store.authorizationHeader,
           },
@@ -61,7 +61,7 @@ export default {
       this.uploading = false;
       this.uploaded = true;
       this.$emit("upload", {
-        uuid: this.uploadData.uuid,
+        id: this.uploadData.id,
       });
     },
     changeFile(event) {
@@ -86,7 +86,7 @@ export default {
         v-else
       >
         <FileUploaded
-          :uuid="uploadData.uuid"
+          :id="uploadData.id"
           class="list-group-item"
         ></FileUploaded>
       </div>

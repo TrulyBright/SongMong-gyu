@@ -59,7 +59,7 @@ export default {
       );
     },
     onUpload(event) {
-      this.form.cover = event.uuid;
+      this.form.cover = event.id;
       this.coverName = event.name;
     },
     onUploadRemove() {
@@ -109,7 +109,7 @@ export default {
       </div>
       <FileUploader
         v-if="uploaded || !existingVolume"
-        :uuid="form.cover"
+        :id="form.cover"
         accept="image/*"
         name="cover"
         @upload="onUpload"

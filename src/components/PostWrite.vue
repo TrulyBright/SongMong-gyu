@@ -28,9 +28,9 @@ export default {
     const result = await axios.get(this.GETURI);
     this.form.title = result.data.title;
     this.form.content = result.data.content;
-    this.form.attached = result.data.attached.map((item) => item.uuid);
-    this.form.attached.forEach((uuid) => {
-      this.fileUploaderMap[this.fileUploaderNextKey++] = uuid;
+    this.form.attached = result.data.attached.map((item) => item.id);
+    this.form.attached.forEach((id) => {
+      this.fileUploaderMap[this.fileUploaderNextKey++] = id;
     });
   },
   computed: {
@@ -94,11 +94,11 @@ export default {
       }
     },
     fileUploaded(event) {
-      this.form.attached.push(event.uuid);
+      this.form.attached.push(event.id);
     },
     fileRemoved(event) {
       this.form.attached = this.form.attached.filter(
-        (item) => item !== event.uuid
+        (item) => item !== event.id
       );
     },
     async submit() {
@@ -125,7 +125,7 @@ export default {
           Authorization: useMemberStore().authorizationHeader,
         },
       });
-      this.form.content += `![맹인용 대체설명](${axios.defaults.baseURL}uploaded/${response.data.uuid})`;
+      this.form.content += `![맹인용 대체설명](${axios.defaults.baseURL}uploaded/${response.data.id})`;
     },
   },
 };
@@ -185,9 +185,9 @@ export default {
           <FileUploader
             @upload="fileUploaded"
             @uploadedRemove="fileRemoved"
-            v-for="[key, uuid] of Object.entries(fileUploaderMap)"
+            v-for="[key, id] of Object.entries(fileUploaderMap)"
             :key="key"
-            :uuid="uuid"
+            :id="id"
             class="uploader"
           ></FileUploader>
           <button type="button" class="btn btn-light mt-1" @click="newUploader">
