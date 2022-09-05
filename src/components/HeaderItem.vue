@@ -149,7 +149,7 @@ export default {
                 ><span data-bs-dismiss="offcanvas">회칙</span></RouterLink
               >
             </li>
-            <li class="nav-item" v-if="!store.isAuthenticated">
+            <!-- <li class="nav-item" v-if="!store.isAuthenticated">
               <a
                 class="nav-link active"
                 data-bs-toggle="modal"
@@ -192,7 +192,7 @@ export default {
                   >사이트 가입</a
                 >
               </ul>
-            </li>
+            </li> -->
             <li class="nav-item" v-if="store.isAuthenticated">
               <RouterLink class="nav-link active" aria-current="page" to="/me"
                 ><span data-bs-dismiss="offcanvas">내 정보</span></RouterLink
