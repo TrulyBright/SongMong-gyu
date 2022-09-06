@@ -176,8 +176,14 @@ export default {
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="offcanvasNavbarDropdown"
               >
-                <a
+                <!-- <a
                   data-bs-toggle="modal"
+                  :href="joinFormUrl"
+                  role="button"
+                  class="dropdown-item"
+                  >동아리 가입</a
+                > -->
+                <a
                   :href="joinFormUrl"
                   role="button"
                   class="dropdown-item"
