@@ -44,7 +44,7 @@ export default {
       };
       const request =
         this.conducted !== null
-          ? axios.patch(
+          ? axios.put(
               "classes/" + this.name + "/records/" + this.conducted,
               this.form,
               headers

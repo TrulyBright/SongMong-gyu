@@ -27,7 +27,7 @@ export default {
         this.$router.go();
       }
     },
-    async patch(english) {
+    async put(english) {
       if (
         confirm(
           `${this.real_name} 회원이 ${this.roleInKorean(english)}으로 ${
@@ -37,7 +37,7 @@ export default {
           }됩니다.`
         )
       ) {
-        await axios.patch(
+        await axios.put(
           "members/" + this.student_id,
           {
             role: english,
@@ -79,7 +79,7 @@ export default {
           v-for="english in roles"
           :key="english"
           :class="'dropdown-item ' + (english === role ? 'disabled' : '')"
-          @click="patch(english)"
+          @click="put(english)"
         >
           {{ roleInKorean(english) }}으로
         </li>

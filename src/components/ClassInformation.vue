@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     async submit() {
-      await axios.patch("classes/" + this.class_name, this.form, {
+      await axios.put("classes/" + this.class_name, this.form, {
         headers: {
           Authorization: store.authorizationHeader,
         },

@@ -71,7 +71,7 @@ export default {
       return typeof this.published === "string";
     },
     method() {
-      return this.existingVolume ? axios.patch : axios.post;
+      return this.existingVolume ? axios.put : axios.post;
     },
     URI() {
       return this.existingVolume ? "magazines/" + this.published : "magazines";

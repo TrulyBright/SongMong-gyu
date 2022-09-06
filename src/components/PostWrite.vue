@@ -43,7 +43,7 @@ export default {
         case "rules":
           return axios.put;
         case "notices":
-          return this.createNormalPost ? axios.patch : axios.post;
+          return this.createNormalPost ? axios.put : axios.post;
         default:
           throw "unknown type: " + this.type;
       }
