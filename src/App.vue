@@ -11,8 +11,8 @@ export default {
       contacts: {
         address: "주소가 없음",
         email: "메일이 없음",
-        presidentName: "회장 이름이 없음",
-        presidentTel: "회장 전화번호가 없음",
+        // presidentName: "회장 이름이 없음",
+        // presidentTel: "회장 전화번호가 없음",
         joinFormUrl: "가입 주소가 없음",
       },
     };
@@ -22,8 +22,8 @@ export default {
       const res = await axios.get("/club-information");
       this.contacts.address = res.data.address;
       this.contacts.email = res.data.email;
-      this.contacts.presidentName = res.data.president_name;
-      this.contacts.presidentTel = res.data.president_tel;
+      // this.contacts.presidentName = res.data.president_name;
+      // this.contacts.presidentTel = res.data.president_tel;
       this.contacts.joinFormUrl = res.data.join_form_url;
     } catch (error) {
       console.log(error);

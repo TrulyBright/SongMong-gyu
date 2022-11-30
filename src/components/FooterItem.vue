@@ -12,8 +12,8 @@ export default {
   props: {
     address: String,
     email: String,
-    presidentName: String,
-    presidentTel: String,
+    // presidentName: String,
+    // presidentTel: String,
     joinFormUrl: String,
   },
   computed: {
@@ -31,10 +31,10 @@ export default {
       <p>
         <i class="bi-mailbox2"></i> <a :href="'mailto:' + email">{{ email }}</a>
       </p>
-      <p>
+      <!-- <p>
         <i class="bi-telephone-fill"></i> 회장 {{ presidentName }}
         <a :href="'tel:' + presidentTel">{{ presidentTel }}</a>
-      </p>
+      </p> -->
     </div>
     <div>
       <h5>서체</h5>
